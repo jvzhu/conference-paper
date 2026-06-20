@@ -1,10 +1,8 @@
 name: Build LaTeX Paper
 
-# actions: write is required by actions/upload-artifact to store the compiled PDF.
-# All other permissions remain read-only.
+# contents: read is sufficient; upload-artifact uses the automatic ACTIONS_RUNTIME_TOKEN.
 permissions:
   contents: read
-  actions: write
 
 on:
   push:
@@ -13,11 +11,13 @@ on:
       - "paper.tex"
       - "references.bib"
       - "figures/**"
+      - ".github/workflows/ci.yml"
   pull_request:
     paths:
       - "paper.tex"
       - "references.bib"
       - "figures/**"
+      - ".github/workflows/ci.yml"
   workflow_dispatch: # allows manual re-trigger from the Actions tab
 
 # Cancel an in-progress run for the same branch when a new commit is pushed.
