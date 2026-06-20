@@ -1,0 +1,153 @@
+% ===========================================================
+% Conference Paper Starter Template
+% ===========================================================
+% Replace the content below with your own title, authors,
+% abstract, sections, and citations.
+% ===========================================================
+
+\documentclass[10pt,conference]{IEEEtran}
+
+% ---- Packages ----
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\graphicspath{{figures/}}
+
+% ===========================================================
+\begin{document}
+
+\title{Your Paper Title Here}
+
+\author{
+  \IEEEauthorblockN{First Author}
+  \IEEEauthorblockA{
+    \textit{Department / Lab} \\
+    \textit{Institution} \\
+    City, Country \\
+    email@example.com
+  }
+  \and
+  \IEEEauthorblockN{Second Author}
+  \IEEEauthorblockA{
+    \textit{Department / Lab} \\
+    \textit{Institution} \\
+    City, Country \\
+    email@example.com
+  }
+}
+
+\maketitle
+
+% ===========================================================
+\begin{abstract}
+Write a concise abstract of 150--250 words summarising the problem,
+approach, key results, and conclusions of your work.
+\end{abstract}
+
+\begin{IEEEkeywords}
+keyword one, keyword two, keyword three, keyword four
+\end{IEEEkeywords}
+
+% ===========================================================
+\section{Introduction}
+\label{sec:intro}
+
+Introduce the problem and motivate your work.
+Cite related work where appropriate~\cite{example2023}.
+
+\subsection{Contributions}
+The main contributions of this paper are:
+\begin{itemize}
+  \item First contribution.
+  \item Second contribution.
+  \item Third contribution.
+\end{itemize}
+
+% ===========================================================
+\section{Related Work}
+\label{sec:related}
+
+Briefly survey relevant prior work.
+Distinguish your approach from existing methods~\cite{survey2022}.
+
+% ===========================================================
+\section{Methodology}
+\label{sec:method}
+
+Describe your approach, model, or algorithm in detail.
+
+\subsection{Problem Formulation}
+
+Define the problem formally.
+
+\subsection{Proposed Approach}
+
+Explain the method. You can include a figure:
+
+\begin{figure}[htbp]
+  \centering
+  % Uncomment and replace with your figure file:
+  % \includegraphics[width=\linewidth]{overview.pdf}
+  \fbox{\rule{0pt}{2in}\rule{0.9\linewidth}{0pt}} % placeholder box
+  \caption{Overview of the proposed approach.}
+  \label{fig:overview}
+\end{figure}
+
+% ===========================================================
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Experimental Setup}
+
+Describe datasets, baselines, evaluation metrics, and
+implementation details.
+
+\subsection{Results}
+
+Present and discuss your results. Include tables as needed.
+
+\begin{table}[htbp]
+  \caption{Comparison with Baselines}
+  \label{tab:results}
+  \begin{center}
+    \begin{tabular}{lcc}
+      \hline
+      \textbf{Method} & \textbf{Metric A} & \textbf{Metric B} \\
+      \hline
+      Baseline 1      & 0.00              & 0.00              \\
+      Baseline 2      & 0.00              & 0.00              \\
+      \textbf{Ours}   & \textbf{0.00}     & \textbf{0.00}     \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\subsection{Ablation Study}
+
+Analyse the impact of key design choices.
+
+% ===========================================================
+\section{Discussion}
+\label{sec:discussion}
+
+Interpret the results and discuss limitations and future work.
+
+% ===========================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+Summarise the paper, restate the main findings, and outline
+directions for future research.
+
+% ===========================================================
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
