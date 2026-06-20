@@ -1,5 +1,7 @@
 name: Build LaTeX Paper
 
+# actions: write is required by actions/upload-artifact to store the compiled PDF.
+# All other permissions remain read-only.
 permissions:
   contents: read
   actions: write
@@ -16,18 +18,27 @@ on:
       - "paper.tex"
       - "references.bib"
       - "figures/**"
+  workflow_dispatch: # allows manual re-trigger from the Actions tab
+
+# Cancel an in-progress run for the same branch when a new commit is pushed.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     name: Compile manuscript
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        # actions/checkout v4 — pinned to SHA for supply-chain safety
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
+        # xu-cheng/latex-action v3 — pinned to SHA for supply-chain safety
+        uses: xu-cheng/latex-action@e2f99d4b3685b0da93f97e1b86ad8fab81105098 # v3
         with:
           root_file: paper.tex
           latexmk_use_lualatex: false
@@ -35,7 +46,10 @@ jobs:
           args: -pdf -interaction=nonstopmode -halt-on-error
 
       - name: Upload compiled PDF
-        uses: actions/upload-artifact@v4
+        # Compiled PDF is available as a workflow artifact for 30 days.
+        # It is never committed to the repository (paper.pdf is in .gitignore).
+        # actions/upload-artifact v4 — pinned to SHA for supply-chain safety
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: paper-pdf
           path: paper.pdf
