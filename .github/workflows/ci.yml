@@ -33,12 +33,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        # actions/checkout v4 — pinned to SHA for supply-chain safety
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        # actions/checkout v4.3.1 — pinned to SHA for supply-chain safety
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Compile LaTeX document
-        # xu-cheng/latex-action v3 — pinned to SHA for supply-chain safety
-        uses: xu-cheng/latex-action@e2f99d4b3685b0da93f97e1b86ad8fab81105098 # v3
+        # xu-cheng/latex-action v3.3.0 — pinned to SHA for supply-chain safety
+        uses: xu-cheng/latex-action@e2f99d4b3685b0da93f97e1b86ad8fab81105098 # v3.3.0
         with:
           root_file: paper.tex
           latexmk_use_lualatex: false
@@ -48,8 +48,8 @@ jobs:
       - name: Upload compiled PDF
         # Compiled PDF is available as a workflow artifact for 30 days.
         # It is never committed to the repository (paper.pdf is in .gitignore).
-        # actions/upload-artifact v4 — pinned to SHA for supply-chain safety
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        # actions/upload-artifact v4.6.2 — pinned to SHA for supply-chain safety
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: paper-pdf
           path: paper.pdf
