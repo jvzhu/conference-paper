@@ -1,6 +1,6 @@
 # Conference Paper
 
-[![Build LaTeX Paper](https://github.com/jvzhu/conference-paper/actions/workflows/ci.yml/badge.svg)](https://github.com/jvzhu/conference-paper/actions/workflows/ci.yml)
+[![Build LaTeX Paper](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
 
 A repository for drafting, revising, and submitting a conference paper.
 
