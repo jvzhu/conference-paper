@@ -12,7 +12,7 @@ A repository for drafting, revising, and submitting a conference paper.
 | `references.bib` | Bibliography database (BibTeX) |
 | `figures/` | Images and diagrams used in the paper |
 | `.github/workflows/ci.yml` | GitHub Actions workflow to compile the manuscript |
-| `LICENSE` | Repository licence |
+| `LICENSE` | Repository license |
 
 ## Workflow
 
