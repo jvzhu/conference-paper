@@ -1,0 +1,32 @@
+name: LaTeX Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Compile LaTeX to PDF
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: |
+          main.tex
+          paper.tex
+        glob_root_file: '*.tex'
+        args: -interaction=nonstopmode -shell-escape
+
+    - name: Upload PDF artifacts
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: pdf-builds
+        path: |
+          *.pdf
+          build/
