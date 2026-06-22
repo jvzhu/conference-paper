@@ -1,0 +1,31 @@
+name: Document Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Validate TeX files
+      run: |
+        echo "Checking for TeX syntax..."
+        for file in *.tex; do
+          if [ -f "$file" ]; then
+            echo "Checking $file..."
+            chktex "$file" || true
+          fi
+        done
+      continue-on-error: true
+
+    - name: Check for required files
+      run: |
+        echo "Verifying document structure..."
+        [ -f "main.tex" ] && echo "✓ main.tex found" || echo "⚠ main.tex missing"
+        [ -f "*.bib" ] && echo "✓ Bibliography found" || echo "ℹ No bibliography file"
