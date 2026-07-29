@@ -5,149 +5,175 @@
 % abstract, sections, and citations.
 % ===========================================================
 
-\documentclass[10pt,conference]{IEEEtran}
+\documentclass[11pt]{article}
 
 % ---- Packages ----
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{cite}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{natbib}
 \usepackage{amsmath,amssymb,amsfonts}
-\usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{setspace}
 
 \graphicspath{{figures/}}
+\onehalfspacing
 
 % ===========================================================
 \begin{document}
 
-\title{Your Paper Title Here}
+\title{The Corporate Stage: Algorithmic Surveillance, Hybrid Visibility, \\
+and the Paradox of Spectatorship in the Modern Workplace}
 
 \author{
-  \IEEEauthorblockN{First Author}
-  \IEEEauthorblockA{
-    \textit{Department / Lab} \\
-    \textit{Institution} \\
-    City, Country \\
-    email@example.com
-  }
-  \and
-  \IEEEauthorblockN{Second Author}
-  \IEEEauthorblockA{
-    \textit{Department / Lab} \\
-    \textit{Institution} \\
-    City, Country \\
-    email@example.com
-  }
+  Vivien Jiaqian Zhu \\
+  \textit{Department of East Asian Languages and Cultures, University of California, Berkeley} \\
+  \textit{Visiting Scholar, Stanford University} \\
+  \textit{Research Fellow, University of Cambridge} \\
+  \texttt{email@example.com}
 }
+
+\date{}
 
 \maketitle
 
 % ===========================================================
 \begin{abstract}
-Write a concise abstract of 150--250 words summarising the problem,
-approach, key results, and conclusions of your work.
+% TODO: 150--250 word abstract for IntechOpen submission.
+% Should state: (1) the problem -- the convergence of algorithmic
+% monitoring and performative self-presentation in contemporary
+% hybrid/remote workplaces; (2) the theoretical apparatus -- Goffman's
+% dramaturgical model of everyday performance, Foucault's account of
+% disciplinary and panoptic power, and Zuboff's theory of surveillance
+% capitalism; (3) the central claim -- that hybrid visibility produces
+% a "paradox of spectatorship," in which workers are simultaneously
+% audience and performer, watched and self-watching, under conditions
+% that exceed the classical panopticon; (4) what the chapter
+% contributes to workplace studies / organizational theory.
 \end{abstract}
 
-\begin{IEEEkeywords}
-keyword one, keyword two, keyword three, keyword four
-\end{IEEEkeywords}
+\textbf{Keywords:} algorithmic surveillance, hybrid work, dramaturgical
+theory, panopticism, surveillance capitalism, spectatorship, workplace
+visibility
 
 % ===========================================================
 \section{Introduction}
 \label{sec:intro}
 
-Introduce the problem and motivate your work.
-Cite related work where appropriate~\cite{example2023}.
+% TODO: Open with the concrete phenomenon -- webcam monitoring software,
+% keystroke logging, "productivity scores," always-on video calls -- as
+% the empirical entry point into the theoretical argument. Motivate why
+% the shift to hybrid/remote work makes visibility a live analytic
+% problem rather than a background condition of employment.
 
-\subsection{Contributions}
-The main contributions of this paper are:
+\subsection{The Corporate Stage as Analytic Frame}
+% TODO: Introduce the chapter's central metaphor -- the "corporate
+% stage" -- as a deliberate extension of Goffman's dramaturgy into a
+% context he did not theorize: algorithmically mediated, asymmetric,
+% and persistent observation.
+
+\subsection{Contributions / Chapter Roadmap}
+The chapter makes the following moves:
 \begin{itemize}
-  \item First contribution.
-  \item Second contribution.
-  \item Third contribution.
+  \item Synthesizes Goffman, Foucault, and Zuboff into a single
+        framework for reading hybrid workplace visibility.
+  \item Names and develops the ``paradox of spectatorship'' as a
+        distinct condition of contemporary algorithmic management.
+  \item % TODO: third contribution -- e.g., implications for worker
+        % autonomy, organizational design, or policy.
 \end{itemize}
 
 % ===========================================================
-\section{Related Work}
-\label{sec:related}
+\section{Theoretical Framework}
+\label{sec:framework}
 
-Briefly survey relevant prior work.
-Distinguish your approach from existing methods~\cite{survey2022}.
+\subsection{Goffman: The Presentation of Self as Front-Stage Labor}
+% TODO: Goffman's front-stage/back-stage distinction, impression
+% management, and what happens when the back-stage collapses --
+% i.e., when home becomes the site of a permanently front-stage
+% performance under webcam surveillance. Cite~\citep{goffman1959}.
 
-% ===========================================================
-\section{Methodology}
-\label{sec:method}
+\subsection{Foucault: Panopticism and the Internalization of the Gaze}
+% TODO: Foucault's panopticon as a disciplinary architecture that
+% works through the possibility, not certainty, of being watched --
+% and how algorithmic monitoring both intensifies and departs from
+% this model (continuous data capture vs. the panopticon's
+% uncertainty principle). Cite~\citep{foucault1975}.
 
-Describe your approach, model, or algorithm in detail.
+\subsection{Zuboff: Surveillance Capitalism and Behavioral Data Extraction}
+% TODO: Zuboff's account of behavioral surplus and the commodification
+% of experience, extended from consumer contexts into the workplace as
+% a site of data extraction from labor itself. Cite~\citep{zuboff2019}.
 
-\subsection{Problem Formulation}
-
-Define the problem formally.
-
-\subsection{Proposed Approach}
-
-Explain the method. You can include a figure:
-
-\begin{figure}[htbp]
-  \centering
-  % Uncomment and replace with your figure file:
-  % \includegraphics[width=\linewidth]{overview.pdf}
-  \fbox{\rule{0pt}{2in}\rule{0.9\linewidth}{0pt}} % placeholder box
-  \caption{Overview of the proposed approach.}
-  \label{fig:overview}
-\end{figure}
+\subsection{Toward a Synthesis: Hybrid Visibility}
+% TODO: Note also relevant empirical/educational-technology literature
+% on dashboards, learning analytics, and visibility as a design
+% problem -- e.g.,~\citep{rets_TODO}. [Need full citation from Vivien --
+% could not verify exact title/venue via search.]
 
 % ===========================================================
-\section{Experiments}
-\label{sec:experiments}
+\section{Hybrid Visibility in the Modern Workplace}
+\label{sec:hybrid}
 
-\subsection{Experimental Setup}
+\subsection{From Panopticon to Platform: What Changes}
+% TODO: Distinguish classical disciplinary visibility (architectural,
+% spatial, uncertain) from platform-based visibility (continuous,
+% quantified, data-retentive, algorithmically scored).
 
-Describe datasets, baselines, evaluation metrics, and
-implementation details.
+\subsection{The Home as Front Stage}
+% TODO: The domestic space reconfigured as a site of professional
+% performance; blurred back-stage/front-stage boundaries under
+% webcam-based and activity-tracking monitoring regimes.
 
-\subsection{Results}
+\subsection{Metrics, Scores, and the Datafied Self}
+% TODO: Productivity dashboards, "active time," algorithmic scoring
+% as a new register of visibility distinct from direct human
+% observation.
 
-Present and discuss your results. Include tables as needed.
+% ===========================================================
+\section{The Paradox of Spectatorship}
+\label{sec:paradox}
 
-\begin{table}[htbp]
-  \caption{Comparison with Baselines}
-  \label{tab:results}
-  \begin{center}
-    \begin{tabular}{lcc}
-      \hline
-      \textbf{Method} & \textbf{Metric A} & \textbf{Metric B} \\
-      \hline
-      Baseline 1      & 0.00              & 0.00              \\
-      Baseline 2      & 0.00              & 0.00              \\
-      \textbf{Ours}   & \textbf{0.00}     & \textbf{0.00}     \\
-      \hline
-    \end{tabular}
-  \end{center}
-\end{table}
+\subsection{Audience and Performer at Once}
+% TODO: Core theoretical move of the chapter -- the worker as
+% simultaneously spectator of their own datafied self (via dashboards,
+% self-monitoring apps) and performer for an algorithmic/managerial
+% audience. Unpack the reflexive loop this creates.
 
-\subsection{Ablation Study}
+\subsection{Illustrative Cases}
+% TODO: 2--3 concrete illustrative cases or vignettes (e.g., call
+% center monitoring, remote-work productivity software, gig-platform
+% rating systems) to ground the theoretical argument. Confirm whether
+% IntechOpen chapter format expects a dedicated "case studies" section
+% or integrated examples.
 
-Analyse the impact of key design choices.
+\subsection{Limits of the Paradox: Resistance and Opacity}
+% TODO: Worker tactics of partial opacity, gaming of metrics, or
+% refusal -- as a counterpoint to a purely totalizing surveillance
+% narrative.
 
 % ===========================================================
 \section{Discussion}
 \label{sec:discussion}
 
-Interpret the results and discuss limitations and future work.
+% TODO: Implications for organizational design, management practice,
+% and worker wellbeing. Position the chapter's contribution within the
+% edited volume's broader theme (\textit{The Evolving Landscape of
+% Workplace -- Challenges and Opportunities}, ed. C\u{a}t\u{a}lina Radu).
 
 % ===========================================================
 \section{Conclusion}
 \label{sec:conclusion}
 
-Summarise the paper, restate the main findings, and outline
-directions for future research.
+% TODO: Restate the paradox of spectatorship as the chapter's central
+% contribution; gesture toward future research (e.g., comparative
+% regulatory approaches, worker-side sousveillance tools).
 
 % ===========================================================
-\bibliographystyle{IEEEtran}
+\bibliographystyle{apalike}
 \bibliography{references}
 
 \end{document}
