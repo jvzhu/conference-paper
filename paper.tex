@@ -130,28 +130,100 @@ The chapter makes the following moves:
 \label{sec:framework}
 
 \subsection{Goffman: The Presentation of Self as Front-Stage Labor}
-% TODO: Goffman's front-stage/back-stage distinction, impression
-% management, and what happens when the back-stage collapses --
-% i.e., when home becomes the site of a permanently front-stage
-% performance under webcam surveillance. Cite~\citep{goffman1959}.
+
+Goffman's dramaturgical model treats social life as a series of
+performances staged for particular audiences, sustained through what
+he called impression management: the continuous, often unconscious
+work of controlling how one appears to others~\citep{goffman1959}.
+Central to this model is the distinction between front stage, where
+a performance is delivered, and back stage, where a performer can
+drop the performance, rehearse, or simply rest. Crucially, Goffman
+located the back stage in physical space -- a break room, a car, a
+home -- precisely because performances required somewhere to end.
+Hybrid work erodes this spatial guarantee. When the home itself
+becomes a monitored workspace, the back stage does not merely shrink;
+it becomes conditional, switched on and off by whether a camera is
+active or a monitoring application is running. Workers report
+adapting home environments -- posture, lighting, even the visible
+contents of a room -- not for a single scheduled performance but for
+a front stage that could, in principle, be activated at any moment.
+Impression management, in this setting, becomes a standing
+condition of labor rather than an episodic task bounded by shift or
+meeting.
 
 \subsection{Foucault: Panopticism and the Internalization of the Gaze}
-% TODO: Foucault's panopticon as a disciplinary architecture that
-% works through the possibility, not certainty, of being watched --
-% and how algorithmic monitoring both intensifies and departs from
-% this model (continuous data capture vs. the panopticon's
-% uncertainty principle). Cite~\citep{foucault1975}.
+
+Foucault's account of the panopticon turns on a specific mechanism:
+disciplinary power that operates not through constant observation
+but through the \emph{uncertainty} of being observed, such that the
+watched party internalizes the gaze and disciplines their own
+conduct regardless of whether anyone is actually watching at a given
+moment~\citep{foucault1975}. This uncertainty principle is what
+makes the panopticon efficient -- surveillance does not need to be
+continuous to be effective, only possible. Algorithmic workplace
+monitoring both intensifies and departs from this model. It
+intensifies it insofar as software can, in principle, observe
+continuously, removing the gaps in which a watched party could
+once assume privacy by default. But it also departs from Foucault's
+model in a specific way: where the panopticon relies on
+\emph{uncertainty} to produce self-discipline, many monitoring
+systems make their presence explicit -- a recording indicator, a
+dashboard the worker can also see -- converting internalized
+discipline into an openly acknowledged, sometimes actively managed,
+condition. The worker under algorithmic monitoring is often not
+guessing whether they are watched, but calibrating behavior against
+a known, quantified record of having been watched.
 
 \subsection{Zuboff: Surveillance Capitalism and Behavioral Data Extraction}
-% TODO: Zuboff's account of behavioral surplus and the commodification
-% of experience, extended from consumer contexts into the workplace as
-% a site of data extraction from labor itself. Cite~\citep{zuboff2019}.
+
+Zuboff's theory of surveillance capitalism describes an economic
+logic in which human experience is unilaterally claimed as raw
+material, translated into behavioral data, and rendered into
+predictive products sold in markets the person generating the data
+never sees or consents to in any meaningful
+sense~\citep{zuboff2019}. Zuboff developed this account primarily
+through consumer platforms -- search, social media, smart devices --
+but the underlying logic extends with little modification into the
+workplace. Keystroke logs, activity timestamps, meeting attendance
+patterns, and productivity scores constitute a comparable behavioral
+surplus, extracted not from consumers but from labor itself, and
+often justified internally as a byproduct of legitimate
+productivity or security tools rather than named as data extraction.
+The asymmetry Zuboff identifies as central to surveillance
+capitalism -- one party accumulates knowledge and predictive power,
+the other supplies the raw behavioral material largely without
+recourse -- maps closely onto the relationship between an employee
+and the monitoring infrastructure of a hybrid workplace.
 
 \subsection{Toward a Synthesis: Hybrid Visibility}
-% TODO: Note also relevant empirical/educational-technology literature
-% on dashboards, learning analytics, and visibility as a design
-% problem -- e.g.,~\citep{rets_TODO}. [Need full citation from Vivien --
-% could not verify exact title/venue via search.]
+
+Read together, these three accounts describe three distinct but
+compounding operations: Goffman locates the site of performance and
+shows how that site has lost its guaranteed off-switch; Foucault
+explains the disciplinary mechanism by which observation, actual or
+possible, shapes conduct; and Zuboff supplies the economic logic
+that gives monitoring its institutional purpose -- behavioral data
+is not merely observed but captured, aggregated, and rendered
+actionable. \textit{Hybrid visibility}, as this chapter uses the
+term, names the condition produced when these three operations occur
+together: a performance space without a reliable back stage
+(Goffman), sustained by infrastructure that watches continuously
+rather than merely possibly (an intensification of Foucault), for
+the purpose of producing extractable behavioral data (Zuboff). This
+convergence is not confined to workplace software: comparable
+dynamics appear in adjacent domains where dashboards render a
+person's activity legible to both themselves and an institution, as
+in learning analytics dashboards designed to make distance
+learners' study behavior visible to instructors and, reflexively, to
+the learners themselves~\citep{rets2021}. The design problem such
+dashboards pose -- what to surface, to whom, and with what effect on
+the surveilled party's self-perception -- is structurally the same
+problem posed by workplace productivity dashboards, suggesting that
+hybrid visibility is not unique to employment but is one instance of
+a broader pattern in dashboard-mediated institutional relationships.
+None of the three theorists anticipated this specific convergence,
+which is precisely what makes their combination useful: each
+supplies a piece the others lack.
 
 % ===========================================================
 \section{Hybrid Visibility in the Modern Workplace}
@@ -190,9 +262,41 @@ The chapter makes the following moves:
 % or integrated examples.
 
 \subsection{Limits of the Paradox: Resistance and Opacity}
-% TODO: Worker tactics of partial opacity, gaming of metrics, or
-% refusal -- as a counterpoint to a purely totalizing surveillance
-% narrative.
+
+The paradox of spectatorship is not a closed system, and workers are
+not simply its passive subjects. A growing body of research on
+worker-side monitoring -- termed \textit{sousveillance}, the
+inversion of surveillance in which those observed turn monitoring
+back on those in power -- shows that workers actively develop
+tactics to reclaim some of the asymmetry hybrid visibility produces.
+In a study of gig workers, De Los Santos et al. found that workers
+routinely research and document information about their employers
+and platforms: tracking payment discrepancies, cross-referencing
+requester reputations through informal networks and tools like
+Turkopticon, and identifying gaps in available information as a
+signal in themselves~\citep{delossantos2024}. These tactics echo
+Mathiesen's reading of Foucault, in which sousveillance is theorized
+as a structural inversion of the panopticon's gaze -- the watched
+turning documentation back on the watcher rather than merely
+enduring it.
+
+Crucially, this resistance is neither total nor uncomplicated.
+Workers in that study weighed sousveillance against real costs: the
+time and effort required, the risk of damaging a working
+relationship, contractual and platform restrictions on collecting
+data about employers, and the emotional toll of what such
+information sometimes reveals. Several participants described
+choosing \emph{not} to look further once they had enough to protect
+themselves, precisely because further looking carried relational or
+psychological cost. This suggests that opacity -- a worker's
+capacity to remain partially unreadable to a monitoring system, or
+to choose not to fully exploit the visibility available to
+them -- functions as its own limited resource, exercised
+deliberately rather than simply imposed from outside. The paradox of
+spectatorship, in other words, does not eliminate worker agency; it
+reshapes the terms on which that agency is exercised, requiring
+workers to manage not only their own visibility but their own
+capacity to see.
 
 % ===========================================================
 \section{Discussion}
