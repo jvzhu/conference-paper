@@ -1,0 +1,54 @@
+name: Release Compiled Paper
+
+# Separate from ci.yml on purpose: this only runs on version tags, not
+# on every branch/PR push, and needs contents: write (to create the
+# release) rather than the read-only permissions used for routine builds.
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - "v*" # e.g. v0.1-draft, v1.0-submission
+
+jobs:
+  release:
+    name: Compile and attach to release
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        # actions/checkout v4.3.1 — pinned to SHA for supply-chain safety
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Compile LaTeX document
+        # xu-cheng/latex-action v3.3.0 — pinned to SHA for supply-chain safety
+        uses: xu-cheng/latex-action@e2f99d4b3685b0da93f97e1b86ad8fab81105098 # v3.3.0
+        with:
+          root_file: paper.tex
+          latexmk_use_lualatex: false
+          latexmk_shell_escape: false
+          args: -pdf -interaction=nonstopmode -halt-on-error
+
+      - name: Create release and attach PDF
+        # softprops/action-gh-release v2.3.1 — pinned to SHA for supply-chain safety
+        # This is the permanent, versioned publication point for the
+        # manuscript, consistent with the repo's Policy Note that
+        # version tags and camera-ready uploads must be auditable.
+        # Tagging (and thus releasing) is a deliberate, human-initiated
+        # action -- it does not happen on ordinary commits/pushes.
+        uses: softprops/action-gh-release@f3cad8bcbf209fe591aa1823e372c5d96b7fc800 # v2.3.1
+        with:
+          name: ${{ github.ref_name }}
+          files: paper.pdf
+          body: |
+            Automated compile of `paper.tex` at tag `${{ github.ref_name }}`.
+
+            This PDF was produced by CI and has **not** been reviewed by a
+            human. Per this repository's Policy Note, human approval is
+            still required before this is treated as submission-ready.
+          draft: true # requires a manual "Publish release" click -- keeps
+                       # the human-approval step explicit rather than implicit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
