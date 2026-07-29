@@ -1,0 +1,109 @@
+name: Build LaTeX Paper
+
+# contents: read is sufficient for the build job; the deploy job
+# additionally needs pages: write and id-token: write (see below).
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "paper.tex"
+      - "references.bib"
+      - "figures/**"
+      - ".github/workflows/ci.yml"
+  pull_request:
+    paths:
+      - "paper.tex"
+      - "references.bib"
+      - "figures/**"
+      - ".github/workflows/ci.yml"
+  workflow_dispatch: # allows manual re-trigger from the Actions tab
+
+# Cancel an in-progress run for the same branch when a new commit is pushed.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Compile manuscript
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        # actions/checkout v4.3.1 — pinned to SHA for supply-chain safety
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Compile LaTeX document
+        # xu-cheng/latex-action v3.3.0 — pinned to SHA for supply-chain safety
+        uses: xu-cheng/latex-action@e2f99d4b3685b0da93f97e1b86ad8fab81105098 # v3.3.0
+        with:
+          root_file: paper.tex
+          latexmk_use_lualatex: false
+          latexmk_shell_escape: false
+          args: -pdf -interaction=nonstopmode -halt-on-error
+
+      - name: Upload compiled PDF (workflow artifact)
+        # Compiled PDF is available as a workflow artifact for 30 days.
+        # It is never committed to the repository (paper.pdf is in .gitignore).
+        # actions/upload-artifact v4.6.2 — pinned to SHA for supply-chain safety
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: paper-pdf
+          path: paper.pdf
+          retention-days: 30
+
+      - name: Prepare Pages site
+        # Only assembled on main; the deploy job below only runs on main
+        # pushes, so this is harmless (unused) on branches/PRs.
+        run: |
+          mkdir -p site
+          cp paper.pdf site/paper.pdf
+          cat > site/index.html <<'HTML'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <title>Conference Paper — Build Output</title>
+          </head>
+          <body>
+            <h1>Compiled Manuscript</h1>
+            <p>Latest build from <code>main</code>. Auto-published by CI — not a
+            submission-ready copy without human review.</p>
+            <p><a href="paper.pdf">Download paper.pdf</a></p>
+          </body>
+          </html>
+          HTML
+
+      - name: Upload Pages artifact
+        # actions/upload-pages-artifact v3 — pinned to SHA for supply-chain safety
+        # Only meaningful for the deploy job (main-branch pushes); harmless
+        # to upload on other triggers since it is simply never deployed.
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: site
+
+  deploy-pages:
+    name: Publish to GitHub Pages
+    needs: build
+    # Deliberately restricted to direct pushes on main only — not PRs, not
+    # other branches — so that publishing a public artifact stays a
+    # reviewable, auditable action tied to the reviewed branch, consistent
+    # with this repo's Policy Note (human approval before publication).
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        # actions/deploy-pages v4 — pinned to SHA for supply-chain safety
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
